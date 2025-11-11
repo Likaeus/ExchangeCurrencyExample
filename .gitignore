@@ -1,5 +1,2 @@
-﻿################################################################################
-# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
-################################################################################
-
+﻿node_modules
 /Dockerfile
