@@ -7,7 +7,6 @@ import { Api2Provider } from "./providers/api2.js";
 import { Api3Provider } from "./providers/api3.js";
 import { logger } from "./domain/logger.js";
 
-// Si creaste el modo demo, descomenta esta línea y asegúrate de tener src/providers/demo.js
 import { DemoProvider } from "./providers/demo.js";
 
 function usage() {
@@ -31,7 +30,6 @@ function parseArgs() {
 async function main() {
   const { source, target, amount } = parseArgs();
 
-  // Selección de proveedores: demo sin red vs. reales
   const providers =
     process.env.DEMO_MODE === "1"
       ? [
@@ -47,7 +45,7 @@ async function main() {
 
   try {
     const best = await service.findBestQuote(source, target, amount);
-    
+
     console.log(JSON.stringify(best, null, 2));
     process.exit(0);
   } catch (err) {
@@ -56,7 +54,6 @@ async function main() {
     process.exit(1);
   }
 }
-
 
 process.on("unhandledRejection", (e) => {
   console.error(
